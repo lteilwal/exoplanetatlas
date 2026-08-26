@@ -1,0 +1,1 @@
+Exoplanet Atlas made with the data retrieved from NASA Exoplanet Archive.
