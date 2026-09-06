@@ -1,0 +1,716 @@
+{
+  "pl_name": {
+    "name": "pl_name",
+    "description": "Planet name as listed in the NASA Exoplanet Archive. Typically formatted as '<star> <letter>' (e.g. TRAPPIST-1 e, Kepler-186 f).",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "string"
+  },
+  "pl_letter": {
+    "name": "pl_letter",
+    "description": "Planet letter suffix (b, c, d, e, etc.) assigned in order of discovery.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "string"
+  },
+  "pl_controv_flag": {
+    "name": "pl_controv_flag",
+    "description": "Controversy flag: 1 = planet confirmation is debated/questioned in literature; 0 = confirmed.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int8"
+  },
+  "tran_flag": {
+    "name": "tran_flag",
+    "description": "Transit flag: 1 = planet transits its host star as observed from Earth; 0 = no transit detected.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int8"
+  },
+  "rv_flag": {
+    "name": "rv_flag",
+    "description": "Radial velocity flag: 1 = planet detected via Doppler/RV spectroscopy; 0 = not detected via RV.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int8"
+  },
+  "ttv_flag": {
+    "name": "ttv_flag",
+    "description": "Transit Timing Variation flag: 1 = timing variations confirmed; 0 = no confirmed TTVs.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int8"
+  },
+  "ptv_flag": {
+    "name": "ptv_flag",
+    "description": "Planet Transit Timing Variations flag: 1 = timing variations detected in planetary transits.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int8"
+  },
+  "ast_flag": {
+    "name": "ast_flag",
+    "description": "Astrometry flag: 1 = planet detected via astrometric wobble of the host star.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int8"
+  },
+  "micro_flag": {
+    "name": "micro_flag",
+    "description": "Microlensing flag: 1 = planet detected via gravitational microlensing.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int8"
+  },
+  "ima_flag": {
+    "name": "ima_flag",
+    "description": "Direct imaging flag: 1 = planet detected via direct optical/infrared imaging.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int8"
+  },
+  "pl_orbper": {
+    "name": "pl_orbper",
+    "description": "Orbital period: the time required for the planet to complete one full revolution around its star.",
+    "unit": "days",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_orbsmax": {
+    "name": "pl_orbsmax",
+    "description": "Semi-major axis: the longest semi-diameter of the planet's elliptical orbit.",
+    "unit": "AU",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_orbeccen": {
+    "name": "pl_orbeccen",
+    "description": "Orbital eccentricity: deviation of the orbit from a perfect circle (0 = circular, 0 < e < 1 = elliptical).",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_orbincl": {
+    "name": "pl_orbincl",
+    "description": "Orbital inclination: angle of the orbital plane relative to the plane of the sky (90 deg = edge-on).",
+    "unit": "deg",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_orblper": {
+    "name": "pl_orblper",
+    "description": "Longitude / argument of periastron: angular distance of the periastron from the ascending node.",
+    "unit": "deg",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_orbtper": {
+    "name": "pl_orbtper",
+    "description": "Time of periastron passage: Barycentric Julian Date at closest approach.",
+    "unit": "days",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_orbtper_systemref": {
+    "name": "pl_orbtper_systemref",
+    "description": "Time reference system used for the periastron passage ephemeris (e.g. BJD_TDB).",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "string"
+  },
+  "pl_rade": {
+    "name": "pl_rade",
+    "description": "Planet equatorial radius measured in Earth radii (1 R_Earth = 6,378.137 km).",
+    "unit": "R_Earth",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_radj": {
+    "name": "pl_radj",
+    "description": "Planet equatorial radius measured in Jupiter radii (1 R_Jupiter = 71,492 km).",
+    "unit": "R_Jupiter",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_masse": {
+    "name": "pl_masse",
+    "description": "Planet mass measured in Earth masses (1 M_Earth = 5.9722 x 10^24 kg).",
+    "unit": "M_Earth",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_massj": {
+    "name": "pl_massj",
+    "description": "Planet mass measured in Jupiter masses (1 M_Jupiter = 1.89813 x 10^27 kg = 317.8 M_Earth).",
+    "unit": "M_Jupiter",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_bmasse": {
+    "name": "pl_bmasse",
+    "description": "Best-estimate planet mass in Earth masses (true mass or m*sin(i) lower limit).",
+    "unit": "M_Earth",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_bmassj": {
+    "name": "pl_bmassj",
+    "description": "Best-estimate planet mass in Jupiter masses (true mass or m*sin(i) lower limit).",
+    "unit": "M_Jupiter",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_bmassprov": {
+    "name": "pl_bmassprov",
+    "description": "Provenance of the best-estimate mass: 'Mass' (true mass), 'Msini' (minimum mass), etc.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "string"
+  },
+  "pl_msinie": {
+    "name": "pl_msinie",
+    "description": "Minimum mass (m * sin(i)) in Earth masses derived from radial velocity measurements.",
+    "unit": "M_Earth",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_msinij": {
+    "name": "pl_msinij",
+    "description": "Minimum mass (m * sin(i)) in Jupiter masses derived from radial velocity measurements.",
+    "unit": "M_Jupiter",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_dens": {
+    "name": "pl_dens",
+    "description": "Mean bulk density of the planet computed from mass and radius.",
+    "unit": "g/cm\u00b3",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_eqt": {
+    "name": "pl_eqt",
+    "description": "Equilibrium temperature: blackbody surface temperature assuming uniform heat redistribution and zero albedo.",
+    "unit": "K",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_insol": {
+    "name": "pl_insol",
+    "description": "Insolation flux: stellar irradiance received at the top of the atmosphere relative to Earth solar flux.",
+    "unit": "F_Earth",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_trandur": {
+    "name": "pl_trandur",
+    "description": "Transit duration: total elapsed time from transit ingress to egress.",
+    "unit": "hours",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_trandep": {
+    "name": "pl_trandep",
+    "description": "Transit depth: percentage decrease in stellar flux during mid-transit.",
+    "unit": "%",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_tranmid": {
+    "name": "pl_tranmid",
+    "description": "Transit mid-point epoch in Barycentric Julian Date.",
+    "unit": "days",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_tranmid_systemref": {
+    "name": "pl_tranmid_systemref",
+    "description": "Time standard reference for the transit midpoint (e.g. BJD_TDB).",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "string"
+  },
+  "pl_ratror": {
+    "name": "pl_ratror",
+    "description": "Ratio of planet radius to stellar radius (Rp / R_star).",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_ratdor": {
+    "name": "pl_ratdor",
+    "description": "Ratio of orbital semi-major axis to stellar radius (a / R_star).",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_imppar": {
+    "name": "pl_imppar",
+    "description": "Impact parameter (b): projected distance between planet and stellar centers at transit center in stellar radii.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_occdep": {
+    "name": "pl_occdep",
+    "description": "Occultation / secondary eclipse depth: fractional brightness decrease when planet passes behind the host star.",
+    "unit": "%",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_rvamp": {
+    "name": "pl_rvamp",
+    "description": "Radial velocity semi-amplitude (K) induced on the host star by the orbiting planet.",
+    "unit": "m/s",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_projobliq": {
+    "name": "pl_projobliq",
+    "description": "Projected sky obliquity (lambda): angle between stellar spin axis and planetary orbital axis.",
+    "unit": "deg",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_trueobliq": {
+    "name": "pl_trueobliq",
+    "description": "True 3D stellar obliquity (psi): true angle between stellar spin and orbital angular momentum vectors.",
+    "unit": "deg",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_angsep": {
+    "name": "pl_angsep",
+    "description": "Angular separation between planet and host star on the plane of the sky.",
+    "unit": "arcsec",
+    "domain": "planet",
+    "dtype": "float64"
+  },
+  "pl_nespec": {
+    "name": "pl_nespec",
+    "description": "Number of emission / secondary eclipse spectra available in the archive.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int16"
+  },
+  "pl_ntranspec": {
+    "name": "pl_ntranspec",
+    "description": "Number of transmission spectra available in the archive.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int16"
+  },
+  "pl_ndispec": {
+    "name": "pl_ndispec",
+    "description": "Number of direct-imaging spectra available in the archive.",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "Int16"
+  },
+  "pl_pubdate": {
+    "name": "pl_pubdate",
+    "description": "Publication date of the planet's reference parameters (YYYY-MM).",
+    "unit": "",
+    "domain": "planet",
+    "dtype": "string"
+  },
+  "hostname": {
+    "name": "hostname",
+    "description": "Canonical primary name of the host star.",
+    "unit": "",
+    "domain": "star",
+    "dtype": "string"
+  },
+  "hd_name": {
+    "name": "hd_name",
+    "description": "Henry Draper Catalog identifier for the host star.",
+    "unit": "",
+    "domain": "star",
+    "dtype": "string"
+  },
+  "hip_name": {
+    "name": "hip_name",
+    "description": "Hipparcos Catalog identifier for the host star.",
+    "unit": "",
+    "domain": "star",
+    "dtype": "string"
+  },
+  "tic_id": {
+    "name": "tic_id",
+    "description": "TESS Input Catalog (TIC) source identifier for the host star.",
+    "unit": "",
+    "domain": "star",
+    "dtype": "string"
+  },
+  "gaia_dr2_id": {
+    "name": "gaia_dr2_id",
+    "description": "Gaia Data Release 2 (DR2) source identifier for the host star.",
+    "unit": "",
+    "domain": "star",
+    "dtype": "string"
+  },
+  "gaia_dr3_id": {
+    "name": "gaia_dr3_id",
+    "description": "Gaia Data Release 3 (DR3) source identifier for the host star.",
+    "unit": "",
+    "domain": "star",
+    "dtype": "string"
+  },
+  "st_spectype": {
+    "name": "st_spectype",
+    "description": "Stellar spectral classification (e.g. G2V, M3.5V, K1IV).",
+    "unit": "",
+    "domain": "star",
+    "dtype": "string"
+  },
+  "st_teff": {
+    "name": "st_teff",
+    "description": "Stellar effective temperature (photospheric blackbody temperature).",
+    "unit": "K",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_rad": {
+    "name": "st_rad",
+    "description": "Stellar photospheric radius in solar radii (1 R_Sun = 695,700 km).",
+    "unit": "R_Sun",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_mass": {
+    "name": "st_mass",
+    "description": "Stellar mass in solar masses (1 M_Sun = 1.98847 x 10^30 kg).",
+    "unit": "M_Sun",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_met": {
+    "name": "st_met",
+    "description": "Stellar metallicity [Fe/H]: logarithmic ratio of iron-to-hydrogen relative to the Sun.",
+    "unit": "dex",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_logg": {
+    "name": "st_logg",
+    "description": "Stellar surface gravity in base-10 logarithmic cgs units (log10(cm/s\u00b2)).",
+    "unit": "log10(cm/s\u00b2)",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_lum": {
+    "name": "st_lum",
+    "description": "Stellar bolometric luminosity in base-10 logarithmic solar luminosities (log10(L_Sun)).",
+    "unit": "log10(L_Sun)",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_age": {
+    "name": "st_age",
+    "description": "Estimated stellar age since zero-age main sequence (ZAMS).",
+    "unit": "Gyr",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_dens": {
+    "name": "st_dens",
+    "description": "Mean bulk density of the host star.",
+    "unit": "g/cm\u00b3",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_rotp": {
+    "name": "st_rotp",
+    "description": "Stellar equatorial rotation period.",
+    "unit": "days",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_vsin": {
+    "name": "st_vsin",
+    "description": "Projected stellar rotational velocity (v * sin(i_star)).",
+    "unit": "km/s",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_radv": {
+    "name": "st_radv",
+    "description": "Systemic heliocentric radial velocity of the host star.",
+    "unit": "km/s",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_log_rhk": {
+    "name": "st_log_rhk",
+    "description": "Chromospheric activity index log10(R'_HK) derived from Ca II H & K lines.",
+    "unit": "dex",
+    "domain": "star",
+    "dtype": "float64"
+  },
+  "st_nphot": {
+    "name": "st_nphot",
+    "description": "Number of photometric time-series records available for this star in the archive.",
+    "unit": "",
+    "domain": "star",
+    "dtype": "Int16"
+  },
+  "st_nrvc": {
+    "name": "st_nrvc",
+    "description": "Number of radial velocity time-series records available for this star.",
+    "unit": "",
+    "domain": "star",
+    "dtype": "Int16"
+  },
+  "st_nspec": {
+    "name": "st_nspec",
+    "description": "Number of stellar spectra available in the archive.",
+    "unit": "",
+    "domain": "star",
+    "dtype": "Int16"
+  },
+  "sy_name": {
+    "name": "sy_name",
+    "description": "System designation (usually matches hostname or discovery system name).",
+    "unit": "",
+    "domain": "system",
+    "dtype": "string"
+  },
+  "ra": {
+    "name": "ra",
+    "description": "Right Ascension of the system in decimal degrees (ICRS J2000 epoch).",
+    "unit": "deg",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "dec": {
+    "name": "dec",
+    "description": "Declination of the system in decimal degrees (ICRS J2000 epoch).",
+    "unit": "deg",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_dist": {
+    "name": "sy_dist",
+    "description": "Distance from the Solar System to the planetary system.",
+    "unit": "pc",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_plx": {
+    "name": "sy_plx",
+    "description": "Trigonometric parallax of the host star measured by Gaia/Hipparcos.",
+    "unit": "mas",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_pm": {
+    "name": "sy_pm",
+    "description": "Total proper motion vector magnitude on the celestial sphere.",
+    "unit": "mas/yr",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_pmra": {
+    "name": "sy_pmra",
+    "description": "Proper motion in Right Ascension (pmRA * cos(Dec)).",
+    "unit": "mas/yr",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_pmdec": {
+    "name": "sy_pmdec",
+    "description": "Proper motion in Declination.",
+    "unit": "mas/yr",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_snum": {
+    "name": "sy_snum",
+    "description": "Total number of confirmed stars in the planetary system.",
+    "unit": "",
+    "domain": "system",
+    "dtype": "Int8"
+  },
+  "sy_pnum": {
+    "name": "sy_pnum",
+    "description": "Total number of confirmed planets in the planetary system.",
+    "unit": "",
+    "domain": "system",
+    "dtype": "Int8"
+  },
+  "sy_mnum": {
+    "name": "sy_mnum",
+    "description": "Total number of confirmed moons in the planetary system.",
+    "unit": "",
+    "domain": "system",
+    "dtype": "Int8"
+  },
+  "cb_flag": {
+    "name": "cb_flag",
+    "description": "Circumbinary flag: 1 = planet orbits two or more stars (P-type orbit); 0 = single star host.",
+    "unit": "",
+    "domain": "system",
+    "dtype": "Int8"
+  },
+  "sy_vmag": {
+    "name": "sy_vmag",
+    "description": "Johnson V-band apparent magnitude (~550 nm).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_bmag": {
+    "name": "sy_bmag",
+    "description": "Johnson B-band apparent magnitude (~440 nm).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_jmag": {
+    "name": "sy_jmag",
+    "description": "2MASS J-band apparent infrared magnitude (~1.25 \u00b5m).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_hmag": {
+    "name": "sy_hmag",
+    "description": "2MASS H-band apparent infrared magnitude (~1.65 \u00b5m).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_kmag": {
+    "name": "sy_kmag",
+    "description": "2MASS Ks-band apparent infrared magnitude (~2.16 \u00b5m).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_gaiamag": {
+    "name": "sy_gaiamag",
+    "description": "Gaia G-band broad apparent optical magnitude (~330-1050 nm).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_tmag": {
+    "name": "sy_tmag",
+    "description": "TESS passband apparent magnitude (~600-1000 nm).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_kepmag": {
+    "name": "sy_kepmag",
+    "description": "Kepler passband apparent magnitude (~420-900 nm).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_umag": {
+    "name": "sy_umag",
+    "description": "SDSS u-band apparent ultraviolet magnitude.",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_rmag": {
+    "name": "sy_rmag",
+    "description": "SDSS r-band apparent red magnitude.",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_imag": {
+    "name": "sy_imag",
+    "description": "SDSS i-band apparent near-infrared magnitude.",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_zmag": {
+    "name": "sy_zmag",
+    "description": "SDSS z-band apparent infrared magnitude.",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_w1mag": {
+    "name": "sy_w1mag",
+    "description": "WISE W1 band mid-infrared apparent magnitude (~3.4 \u00b5m).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_w2mag": {
+    "name": "sy_w2mag",
+    "description": "WISE W2 band mid-infrared apparent magnitude (~4.6 \u00b5m).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_w3mag": {
+    "name": "sy_w3mag",
+    "description": "WISE W3 band mid-infrared apparent magnitude (~12 \u00b5m).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "sy_w4mag": {
+    "name": "sy_w4mag",
+    "description": "WISE W4 band mid-infrared apparent magnitude (~22 \u00b5m).",
+    "unit": "mag",
+    "domain": "system",
+    "dtype": "float64"
+  },
+  "discoverymethod": {
+    "name": "discoverymethod",
+    "description": "Primary detection technique (e.g. Transit, Radial Velocity, Microlensing, Direct Imaging).",
+    "unit": "",
+    "domain": "discovery",
+    "dtype": "string"
+  },
+  "disc_year": {
+    "name": "disc_year",
+    "description": "Year in which the planet was published as a confirmed exoplanet.",
+    "unit": "yr",
+    "domain": "discovery",
+    "dtype": "Int16"
+  },
+  "disc_facility": {
+    "name": "disc_facility",
+    "description": "Observatory, space telescope mission, or survey facility that discovered the planet.",
+    "unit": "",
+    "domain": "discovery",
+    "dtype": "string"
+  },
+  "disc_instrument": {
+    "name": "disc_instrument",
+    "description": "Primary astronomical instrument / spectrograph / camera used for discovery.",
+    "unit": "",
+    "domain": "discovery",
+    "dtype": "string"
+  },
+  "disc_locale": {
+    "name": "disc_locale",
+    "description": "Discovery platform location: 'Space' or 'Ground'.",
+    "unit": "",
+    "domain": "discovery",
+    "dtype": "string"
+  },
+  "disc_pubdate": {
+    "name": "disc_pubdate",
+    "description": "Date of discovery announcement publication (YYYY-MM).",
+    "unit": "",
+    "domain": "discovery",
+    "dtype": "string"
+  },
+  "disc_refname": {
+    "name": "disc_refname",
+    "description": "Bibliographical ADS reference string for the discovery paper.",
+    "unit": "",
+    "domain": "discovery",
+    "dtype": "string"
+  }
+}

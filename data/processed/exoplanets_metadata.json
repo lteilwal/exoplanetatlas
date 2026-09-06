@@ -1,0 +1,713 @@
+{
+  "pipeline_stage": "Stage 1: Data Acquisition & Processing",
+  "generated_at_utc": "2026-09-01T16:01:39.869250+00:00",
+  "source_archive": "NASA Exoplanet Archive (TAP API)",
+  "source_table": "pscomppars",
+  "input_rows": 6354,
+  "output_rows": 6354,
+  "rows_removed": 0,
+  "unique_host_stars": 4764,
+  "multi_planet_systems": 1058,
+  "discovery_year_range": [
+    1992,
+    2026
+  ],
+  "completeness_overall_pct": 78.92,
+  "domain_completeness": {
+    "planet": {
+      "total_columns": 45,
+      "filled_cells": 207308,
+      "total_cells": 285930,
+      "completeness_pct": 72.5
+    },
+    "star": {
+      "total_columns": 22,
+      "filled_cells": 101275,
+      "total_cells": 139788,
+      "completeness_pct": 72.45
+    },
+    "system": {
+      "total_columns": 28,
+      "filled_cells": 154529,
+      "total_cells": 177912,
+      "completeness_pct": 86.86
+    },
+    "discovery": {
+      "total_columns": 7,
+      "filled_cells": 44478,
+      "total_cells": 44478,
+      "completeness_pct": 100.0
+    }
+  },
+  "planet_classification_distribution": {
+    "Gas Giant": 2183,
+    "Sub-Neptune": 2081,
+    "Super-Earth": 1197,
+    "Terrestrial": 576,
+    "Neptune-like": 310,
+    "Unknown": 7
+  },
+  "habitability_zone_distribution": {
+    "Hot Zone": 5118,
+    "Unknown": 523,
+    "Cold Zone": 414,
+    "Conservative Habitable Zone": 193,
+    "Optimistic Habitable Zone": 105,
+    "Potential Habitable (Equilibrium Temp)": 1
+  },
+  "discovery_method_distribution": {
+    "Transit": 4688,
+    "Radial Velocity": 1200,
+    "Microlensing": 283,
+    "Imaging": 98,
+    "Transit Timing Variations": 42,
+    "Eclipse Timing Variations": 17,
+    "Orbital Brightness Modulation": 9,
+    "Pulsar Timing": 8,
+    "Astrometry": 6,
+    "Pulsation Timing Variations": 2,
+    "Disk Kinematics": 1
+  },
+  "actions_performed": [
+    "Normalized column names by stripping leading/trailing whitespace",
+    "Sanitized string null sentinels across 19 string columns",
+    "Derived 'calc_density' (available for 6255 planets)",
+    "Classified planets into morphological types ('planet_class')",
+    "Evaluated stellar insolation regime ('habitability_zone_est')",
+    "Sorted dataset deterministically by hostname, pl_letter, pl_name"
+  ],
+  "processing_time_seconds": 0.174,
+  "columns_count": 105,
+  "column_coverage": {
+    "pl_name": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "pl_letter": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "pl_controv_flag": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "tran_flag": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "rv_flag": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "ttv_flag": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "ptv_flag": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "ast_flag": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "micro_flag": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "ima_flag": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "pl_orbper": {
+      "non_null_count": 6009,
+      "null_count": 345,
+      "coverage_pct": 94.57,
+      "dtype": "float64"
+    },
+    "pl_orbsmax": {
+      "non_null_count": 5924,
+      "null_count": 430,
+      "coverage_pct": 93.23,
+      "dtype": "float64"
+    },
+    "pl_orbeccen": {
+      "non_null_count": 5294,
+      "null_count": 1060,
+      "coverage_pct": 83.32,
+      "dtype": "float64"
+    },
+    "pl_orbincl": {
+      "non_null_count": 4834,
+      "null_count": 1520,
+      "coverage_pct": 76.08,
+      "dtype": "float64"
+    },
+    "pl_orblper": {
+      "non_null_count": 2098,
+      "null_count": 4256,
+      "coverage_pct": 33.02,
+      "dtype": "float64"
+    },
+    "pl_orbtper": {
+      "non_null_count": 1062,
+      "null_count": 5292,
+      "coverage_pct": 16.71,
+      "dtype": "float64"
+    },
+    "pl_orbtper_systemref": {
+      "non_null_count": 816,
+      "null_count": 5538,
+      "coverage_pct": 12.84,
+      "dtype": "string"
+    },
+    "pl_rade": {
+      "non_null_count": 6304,
+      "null_count": 50,
+      "coverage_pct": 99.21,
+      "dtype": "float64"
+    },
+    "pl_radj": {
+      "non_null_count": 6304,
+      "null_count": 50,
+      "coverage_pct": 99.21,
+      "dtype": "float64"
+    },
+    "pl_masse": {
+      "non_null_count": 2442,
+      "null_count": 3912,
+      "coverage_pct": 38.43,
+      "dtype": "float64"
+    },
+    "pl_massj": {
+      "non_null_count": 2442,
+      "null_count": 3912,
+      "coverage_pct": 38.43,
+      "dtype": "float64"
+    },
+    "pl_bmasse": {
+      "non_null_count": 6323,
+      "null_count": 31,
+      "coverage_pct": 99.51,
+      "dtype": "float64"
+    },
+    "pl_bmassj": {
+      "non_null_count": 6323,
+      "null_count": 31,
+      "coverage_pct": 99.51,
+      "dtype": "float64"
+    },
+    "pl_bmassprov": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "pl_msinie": {
+      "non_null_count": 1341,
+      "null_count": 5013,
+      "coverage_pct": 21.1,
+      "dtype": "float64"
+    },
+    "pl_msinij": {
+      "non_null_count": 1341,
+      "null_count": 5013,
+      "coverage_pct": 21.1,
+      "dtype": "float64"
+    },
+    "pl_dens": {
+      "non_null_count": 6212,
+      "null_count": 142,
+      "coverage_pct": 97.77,
+      "dtype": "float64"
+    },
+    "pl_eqt": {
+      "non_null_count": 5825,
+      "null_count": 529,
+      "coverage_pct": 91.67,
+      "dtype": "float64"
+    },
+    "pl_insol": {
+      "non_null_count": 5769,
+      "null_count": 585,
+      "coverage_pct": 90.79,
+      "dtype": "float64"
+    },
+    "pl_trandur": {
+      "non_null_count": 4642,
+      "null_count": 1712,
+      "coverage_pct": 73.06,
+      "dtype": "float64"
+    },
+    "pl_trandep": {
+      "non_null_count": 4513,
+      "null_count": 1841,
+      "coverage_pct": 71.03,
+      "dtype": "float64"
+    },
+    "pl_tranmid": {
+      "non_null_count": 5065,
+      "null_count": 1289,
+      "coverage_pct": 79.71,
+      "dtype": "float64"
+    },
+    "pl_tranmid_systemref": {
+      "non_null_count": 5015,
+      "null_count": 1339,
+      "coverage_pct": 78.93,
+      "dtype": "string"
+    },
+    "pl_ratror": {
+      "non_null_count": 4571,
+      "null_count": 1783,
+      "coverage_pct": 71.94,
+      "dtype": "float64"
+    },
+    "pl_ratdor": {
+      "non_null_count": 4535,
+      "null_count": 1819,
+      "coverage_pct": 71.37,
+      "dtype": "float64"
+    },
+    "pl_imppar": {
+      "non_null_count": 4550,
+      "null_count": 1804,
+      "coverage_pct": 71.61,
+      "dtype": "float64"
+    },
+    "pl_occdep": {
+      "non_null_count": 37,
+      "null_count": 6317,
+      "coverage_pct": 0.58,
+      "dtype": "float64"
+    },
+    "pl_rvamp": {
+      "non_null_count": 2556,
+      "null_count": 3798,
+      "coverage_pct": 40.23,
+      "dtype": "float64"
+    },
+    "pl_projobliq": {
+      "non_null_count": 238,
+      "null_count": 6116,
+      "coverage_pct": 3.75,
+      "dtype": "float64"
+    },
+    "pl_trueobliq": {
+      "non_null_count": 72,
+      "null_count": 6282,
+      "coverage_pct": 1.13,
+      "dtype": "float64"
+    },
+    "pl_angsep": {
+      "non_null_count": 5895,
+      "null_count": 459,
+      "coverage_pct": 92.78,
+      "dtype": "float64"
+    },
+    "pl_nespec": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int16"
+    },
+    "pl_ntranspec": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int16"
+    },
+    "pl_ndispec": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int16"
+    },
+    "pl_pubdate": {
+      "non_null_count": 0,
+      "null_count": 6354,
+      "coverage_pct": 0.0,
+      "dtype": "string"
+    },
+    "hostname": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "hd_name": {
+      "non_null_count": 1058,
+      "null_count": 5296,
+      "coverage_pct": 16.65,
+      "dtype": "string"
+    },
+    "hip_name": {
+      "non_null_count": 1162,
+      "null_count": 5192,
+      "coverage_pct": 18.29,
+      "dtype": "string"
+    },
+    "tic_id": {
+      "non_null_count": 6057,
+      "null_count": 297,
+      "coverage_pct": 95.33,
+      "dtype": "string"
+    },
+    "gaia_dr2_id": {
+      "non_null_count": 6004,
+      "null_count": 350,
+      "coverage_pct": 94.49,
+      "dtype": "string"
+    },
+    "gaia_dr3_id": {
+      "non_null_count": 5970,
+      "null_count": 384,
+      "coverage_pct": 93.96,
+      "dtype": "string"
+    },
+    "st_spectype": {
+      "non_null_count": 2364,
+      "null_count": 3990,
+      "coverage_pct": 37.2,
+      "dtype": "string"
+    },
+    "st_teff": {
+      "non_null_count": 6056,
+      "null_count": 298,
+      "coverage_pct": 95.31,
+      "dtype": "float64"
+    },
+    "st_rad": {
+      "non_null_count": 6032,
+      "null_count": 322,
+      "coverage_pct": 94.93,
+      "dtype": "float64"
+    },
+    "st_mass": {
+      "non_null_count": 6345,
+      "null_count": 9,
+      "coverage_pct": 99.86,
+      "dtype": "float64"
+    },
+    "st_met": {
+      "non_null_count": 5711,
+      "null_count": 643,
+      "coverage_pct": 89.88,
+      "dtype": "float64"
+    },
+    "st_logg": {
+      "non_null_count": 6027,
+      "null_count": 327,
+      "coverage_pct": 94.85,
+      "dtype": "float64"
+    },
+    "st_lum": {
+      "non_null_count": 6038,
+      "null_count": 316,
+      "coverage_pct": 95.03,
+      "dtype": "float64"
+    },
+    "st_age": {
+      "non_null_count": 4904,
+      "null_count": 1450,
+      "coverage_pct": 77.18,
+      "dtype": "float64"
+    },
+    "st_dens": {
+      "non_null_count": 5755,
+      "null_count": 599,
+      "coverage_pct": 90.57,
+      "dtype": "float64"
+    },
+    "st_rotp": {
+      "non_null_count": 924,
+      "null_count": 5430,
+      "coverage_pct": 14.54,
+      "dtype": "float64"
+    },
+    "st_vsin": {
+      "non_null_count": 2348,
+      "null_count": 4006,
+      "coverage_pct": 36.95,
+      "dtype": "float64"
+    },
+    "st_radv": {
+      "non_null_count": 2420,
+      "null_count": 3934,
+      "coverage_pct": 38.09,
+      "dtype": "float64"
+    },
+    "st_log_rhk": {
+      "non_null_count": 684,
+      "null_count": 5670,
+      "coverage_pct": 10.76,
+      "dtype": "float64"
+    },
+    "st_nphot": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int16"
+    },
+    "st_nrvc": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int16"
+    },
+    "st_nspec": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int16"
+    },
+    "sy_name": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "ra": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "float64"
+    },
+    "dec": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "float64"
+    },
+    "sy_dist": {
+      "non_null_count": 6327,
+      "null_count": 27,
+      "coverage_pct": 99.58,
+      "dtype": "float64"
+    },
+    "sy_plx": {
+      "non_null_count": 5956,
+      "null_count": 398,
+      "coverage_pct": 93.74,
+      "dtype": "float64"
+    },
+    "sy_pm": {
+      "non_null_count": 6044,
+      "null_count": 310,
+      "coverage_pct": 95.12,
+      "dtype": "float64"
+    },
+    "sy_pmra": {
+      "non_null_count": 6044,
+      "null_count": 310,
+      "coverage_pct": 95.12,
+      "dtype": "float64"
+    },
+    "sy_pmdec": {
+      "non_null_count": 6044,
+      "null_count": 310,
+      "coverage_pct": 95.12,
+      "dtype": "float64"
+    },
+    "sy_snum": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "sy_pnum": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "sy_mnum": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "cb_flag": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int8"
+    },
+    "sy_vmag": {
+      "non_null_count": 6052,
+      "null_count": 302,
+      "coverage_pct": 95.25,
+      "dtype": "float64"
+    },
+    "sy_bmag": {
+      "non_null_count": 5926,
+      "null_count": 428,
+      "coverage_pct": 93.26,
+      "dtype": "float64"
+    },
+    "sy_jmag": {
+      "non_null_count": 6042,
+      "null_count": 312,
+      "coverage_pct": 95.09,
+      "dtype": "float64"
+    },
+    "sy_hmag": {
+      "non_null_count": 6058,
+      "null_count": 296,
+      "coverage_pct": 95.34,
+      "dtype": "float64"
+    },
+    "sy_kmag": {
+      "non_null_count": 6065,
+      "null_count": 289,
+      "coverage_pct": 95.45,
+      "dtype": "float64"
+    },
+    "sy_gaiamag": {
+      "non_null_count": 6006,
+      "null_count": 348,
+      "coverage_pct": 94.52,
+      "dtype": "float64"
+    },
+    "sy_tmag": {
+      "non_null_count": 6058,
+      "null_count": 296,
+      "coverage_pct": 95.34,
+      "dtype": "float64"
+    },
+    "sy_kepmag": {
+      "non_null_count": 3468,
+      "null_count": 2886,
+      "coverage_pct": 54.58,
+      "dtype": "float64"
+    },
+    "sy_umag": {
+      "non_null_count": 772,
+      "null_count": 5582,
+      "coverage_pct": 12.15,
+      "dtype": "float64"
+    },
+    "sy_rmag": {
+      "non_null_count": 3543,
+      "null_count": 2811,
+      "coverage_pct": 55.76,
+      "dtype": "float64"
+    },
+    "sy_imag": {
+      "non_null_count": 3488,
+      "null_count": 2866,
+      "coverage_pct": 54.89,
+      "dtype": "float64"
+    },
+    "sy_zmag": {
+      "non_null_count": 3274,
+      "null_count": 3080,
+      "coverage_pct": 51.53,
+      "dtype": "float64"
+    },
+    "sy_w1mag": {
+      "non_null_count": 5721,
+      "null_count": 633,
+      "coverage_pct": 90.04,
+      "dtype": "float64"
+    },
+    "sy_w2mag": {
+      "non_null_count": 5722,
+      "null_count": 632,
+      "coverage_pct": 90.05,
+      "dtype": "float64"
+    },
+    "sy_w3mag": {
+      "non_null_count": 5721,
+      "null_count": 633,
+      "coverage_pct": 90.04,
+      "dtype": "float64"
+    },
+    "sy_w4mag": {
+      "non_null_count": 5720,
+      "null_count": 634,
+      "coverage_pct": 90.02,
+      "dtype": "float64"
+    },
+    "discoverymethod": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "disc_year": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "Int16"
+    },
+    "disc_facility": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "disc_instrument": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "disc_locale": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "disc_pubdate": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "disc_refname": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "planet_class": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "habitability_zone_est": {
+      "non_null_count": 6354,
+      "null_count": 0,
+      "coverage_pct": 100.0,
+      "dtype": "string"
+    },
+    "calc_density": {
+      "non_null_count": 6255,
+      "null_count": 99,
+      "coverage_pct": 98.44,
+      "dtype": "float64"
+    }
+  }
+}

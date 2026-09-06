@@ -1,0 +1,78 @@
+version: "3.8"
+
+services:
+  # 1. PostgreSQL Database
+  db:
+    image: postgres:16-alpine
+    container_name: exoplanet_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-exoplanet_db}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-exoplanet_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - exoplanet_net
+
+  # 2. FastAPI REST Backend
+  backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    container_name: exoplanet_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-exoplanet_db}
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-exoplanet_db}
+      HOST: 0.0.0.0
+      PORT: 8000
+    command: >
+      sh -c "python load_database.py && python run_server.py --host 0.0.0.0 --port 8000"
+    networks:
+      - exoplanet_net
+
+  # 3. React + Vite Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: exoplanet_frontend
+    restart: unless-stopped
+    networks:
+      - exoplanet_net
+
+  # 4. Nginx Gateway / Reverse Proxy
+  proxy:
+    image: nginx:alpine
+    container_name: exoplanet_proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - exoplanet_net
+
+volumes:
+  pgdata:
+
+networks:
+  exoplanet_net:
+    driver: bridge
+

@@ -1,5 +1,38 @@
+# Python virtual environments & build artifacts
 venv/
-.idea/
+.venv/
+env/
+ENV/
+*.egg-info/
+build/
+dist/
+
+# Python bytecode & cache
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local databases & logs
+*.db
+*.sqlite
+*.sqlite3
+*.log
+logs/
+
+# Frontend / Node build artifacts
+frontend/dist/
+frontend/node_modules/
+node_modules/
+.npm/
+
+# IDE / Editor configuration
+.idea/
+.vscode/
+*.sublime-*
+.DS_Store
+
+# Environment configuration
 .env
