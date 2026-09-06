@@ -6,11 +6,11 @@ The system acquires and processes data from the NASA Exoplanet Archive, stores i
 
 ### Stack
 
-Python · FastAPI · PostgreSQL · SQLAlchemy · Alembic · MCP · Gemini · React · TypeScript · Vite · Docker · Nginx
+Python · FastAPI · PostgreSQL · SQLAlchemy · Alembic · MCP · Gemini · React · Docker · Nginx
 
 ### Architecture
 
-NASA Exoplanet Archive → Data Pipeline → PostgreSQL → FastAPI + MCP/AI → React
+NASA Exoplanet Archive → Data Pipeline → PostgreSQL → FastAPI + MCP/AI → Frontend
 
 ### Run locally
 
